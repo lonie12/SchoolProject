@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>💪home</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+</head>
+
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+}
+</style>
+
+
+<body>
+    <header>
+        <ul >
+            <li><a href="">Home</a></li>
+            <li><a href="/GiveCategories">list categorie</a></li>
+            <li><a href="/GiveArticles"> list article</a></li>
+            <li><a href="/GetArticleSousSeuil"> Article sous le seuil</a></li>
+        </ul>
+    </header>
+    <form th:action="@{/addArticle}"  th:object="${article}" method="post" >
+        <div id="main">
+
+            <div>
+                <p style="text-align: center; color: grey; font-size: 30px; margin: 0;">Enregistrer un article</p>
+            </div>
+            <div id="forms">
+                <div >
+                    <h4 style="margin: 3px; letter-spacing: 0.3px; font-size: 16px; ">Libellé</h4>
+                    <input type="text" th:field="*{lib}" />
+                </div>
+
+                <div >
+                    <h4 style="margin: 3px; letter-spacing: 0.3px; font-size: 16px; ">Prix</h4>
+                    <input type="number" th:field="*{prix}" />
+                </div>
+
+                <div >
+                    <h4 style="margin: 3px; letter-spacing: 0.3px; font-size: 16px; ">Quantité seuil</h4>
+                    <input type="number" th:field="*{qteSeuil}" />
+                </div>
+
+
+
+
+                <div >
+                    <h4 style="margin: 3px; letter-spacing: 0.3px; font-size: 16px; ">Categorie</h4>
+                    <select th:field="*{categorie}">
+                        <option value="" >choisir</option>
+                        <option th:each="categorie : ${categories}"  th:value="${categorie.getId()} " th:text="${categorie.libelle}"></option>
+                    </select>
+                </div>
+
+                <div >
+                    <h4></h4>
+                    <button type="submit">Enregistrer</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
