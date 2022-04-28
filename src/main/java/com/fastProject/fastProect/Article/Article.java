@@ -3,7 +3,6 @@ package com.fastProject.fastProect.Article;
 import com.fastProject.fastProect.Achats.Achats;
 import com.fastProject.fastProect.Approvision.Approvision;
 import com.fastProject.fastProect.Categories.Categorie;
-import com.fastProject.fastProect.Vente.Vente;
 
 import javax.persistence.*;
 import java.time.LocalDate;

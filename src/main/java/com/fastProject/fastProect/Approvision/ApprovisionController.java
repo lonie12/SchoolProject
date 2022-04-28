@@ -1,4 +1,4 @@
-package com.fastProject.fastProect.Article;
+package com.fastProject.fastProect.Approvision;
 
 import com.fastProject.fastProect.Approvision.Approvision;
 import com.fastProject.fastProect.Approvision.ApprovisionService;
@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import com.fastProject.fastProect.Article.ArticleService;
+import com.fastProject.fastProect.Article.Article;
 
 import java.util.List;
 
@@ -38,9 +40,9 @@ public class ApprovisionController {
     public String GiveApprovision(Model model){
          List<Approvision>  approvisions = approvisionService.getAllApprovision();
          model.addAttribute("approvisions",approvisions);
-         for (int i = 0; i < approvisions.size(); i++) {
-                System.out.println(approvisions.get(i).getDateApprovision());
-         }
+        //  for (int i = 0; i < approvisions.size(); i++) {
+        //         System.out.println(approvisions.get(i).getDateApprovision());
+        //  }
 
          return "Approvision/list_approvision";
     };
